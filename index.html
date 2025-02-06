@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redireccionando a TikTok</title>
+    <script type="text/javascript">
+        // Función para detectar si es un dispositivo móvil
+        function isMobile() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+
+        // Enlace profundo de TikTok (intenta abrir la app)
+        const tiktokDeepLink = "snssdk1233://user/profile/acheidem"; // Deeplink para abrir TikTok en la app
+        // Enlace web de TikTok (como respaldo)
+        const tiktokWebUrl = "https://www.tiktok.com/@acheidem";
+
+        // Redirección
+        if (isMobile()) {
+            // Intenta abrir la aplicación de TikTok
+            window.location.href = tiktokDeepLink;
+            // Si no se abre la app, redirige a la versión web después de un tiempo
+            setTimeout(function() {
+                window.location.href = tiktokWebUrl;
+            }, 1000); // Espera 1 segundo antes de redirigir
+        } else {
+            // Si no es un dispositivo móvil, redirige a la versión web
+            window.location.href = tiktokWebUrl;
+        }
+    </script>
+</head>
+<body>
+    <p>Estás siendo redirigido a TikTok. Si no funciona, haz clic <a href="https://www.tiktok.com/@acheidem">aquí</a>.</p>
+</body>
+</html>
