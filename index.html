@@ -10,15 +10,14 @@
             return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
         }
 
-        // Enlace profundo de TikTok (intenta abrir la app)
-        const tiktokDeepLink = "snssdk1233://user/profile/acheidem"; // Deeplink para abrir TikTok en la app
         // Enlace web de TikTok (como respaldo)
         const tiktokWebUrl = "https://www.tiktok.com/@acheidem";
 
         // Redirección
         if (isMobile()) {
-            // Intenta abrir la aplicación de TikTok
-            window.location.href = tiktokDeepLink;
+            // Intenta abrir la aplicación de TikTok usando el esquema de URL universal
+            const tiktokUniversalLink = "https://www.tiktok.com/@acheidem";
+            window.location.href = tiktokUniversalLink;
             // Si no se abre la app, redirige a la versión web después de un tiempo
             setTimeout(function() {
                 window.location.href = tiktokWebUrl;
